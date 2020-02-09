@@ -54,6 +54,11 @@ z = text.col_values(2)[1:]
 m = text.col_values(3)[1:]
 zpic = text.col_values(4)[1:]
 mpic= text.col_values(5)[1:]
+m.reverse()
+z.reverse()
+word.reverse()
+mpic.reverse()
+zpic.reverse()
 #%%
 os.chdir("C:\\Users\\hp\\Desktop\\zeems")
 root = os.getcwd()
