@@ -7,7 +7,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 import os
 #%%
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-creds = ServiceAccountCredentials.from_json_keyfile_name('C://Users//Family New//Desktop//keys.json', scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name('C:/Users/hp/Desktop/keys.json', scope)
 
 #%%
 
@@ -32,6 +32,30 @@ final= random.sample(set(word), 2)
 answer = final[0] + ' ' + final[1]
 
 #%%
+#updating the theme list
+text= client.open('zeems').get_worksheet(2)
+
+#%%
+
+update_word= "a" + str(len(text.col_values(1))+1)
+update_zimg = "d" + str(len(text.col_values(1))+1)
+update_mimg = "e" + str(len(text.col_values(1))+1)
+zimg_p = "pics/zeel_" + str(len(text.col_values(1))) +".jpg"
+mimg_p = "pics/heemz_" + str(len(text.col_values(1)))+".jpg"                            
+text.update_acell(update_word,answer)
+text.update_acell(update_zimg,zimg_p)
+text.update_acell(update_mimg,mimg_p)
+
+#%%
+#getting this week's text
+text= client.open('zeems').get_worksheet(2)
+word=text.col_values(1)[1:]
+z = text.col_values(2)[1:]
+m = text.col_values(3)[1:]
+zpic = text.col_values(4)[1:]
+mpic= text.col_values(5)[1:]
+#%%
+os.chdir("C:\\Users\\hp\\Desktop\\zeems")
 root = os.getcwd()
 templates_dir = os.path.join(root, 'templates')
 env = Environment( loader = FileSystemLoader(templates_dir) )
@@ -43,5 +67,5 @@ filename = os.path.join(root, 'index.html')
 with open(filename, 'w') as fh:
     fh.write(template.render(
         theme = answer,
-       
+        content = zip(m, z, word, mpic,zpic ),
     ))    
