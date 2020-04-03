@@ -23,14 +23,14 @@ headers = data.pop(0)
 zeel = pd.DataFrame(data, columns=headers)
 mahima= client.open('zeems').get_worksheet(1)
 datas = mahima.get_all_values()
-header = datas.pop(0)
+header = datas.pop(0) 
 heemz = pd.DataFrame(datas, columns=header)
 word=[]
 word.append(random.choice(zeel["words"]))
 word.append(random.choice(heemz["words"]))
 final= random.sample(set(word), 2)
 answer = final[0] + ' ' + final[1]
-
+answer
 #%%
 #updating the theme list
 text= client.open('zeems').get_worksheet(2)
