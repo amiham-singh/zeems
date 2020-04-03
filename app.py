@@ -36,16 +36,21 @@ answer = final[0] + ' ' + final[1]
 text= client.open('zeems').get_worksheet(2)
 
 
+
 #%%
 
 update_word= "a" + str(len(text.col_values(1))+1)
 update_zimg = "d" + str(len(text.col_values(1))+1)
+update_textm = "b" + str(len(text.col_values(1))+1)
+update_textz = "c" + str(len(text.col_values(1))+1)
 update_mimg = "e" + str(len(text.col_values(1))+1)
 zimg_p = "pics/zeel_" + str(len(text.col_values(1))) +".jpg"
 mimg_p = "pics/heemz_" + str(len(text.col_values(1)))+".jpg"                            
 text.update_acell(update_word,answer)
 text.update_acell(update_zimg,zimg_p)
 text.update_acell(update_mimg,mimg_p)
+text.update_acell(update_textm,"Work in progress")
+text.update_acell(update_textz,"Work in progress")
 
 
 #%%
