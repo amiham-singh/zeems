@@ -25,9 +25,12 @@ mahima= client.open('zeems').get_worksheet(1)
 datas = mahima.get_all_values()
 header = datas.pop(0) 
 heemz = pd.DataFrame(datas, columns=header)
+#%%
 word=[]
 word.append(random.choice(zeel["words"]))
 word.append(random.choice(heemz["words"]))
+word
+#%%
 final= random.sample(set(word), 2)
 answer = final[0] + ' ' + final[1]
 answer
